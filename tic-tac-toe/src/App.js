@@ -1,15 +1,16 @@
-// src/App.js
-import React from "react";
-import Board from "../src/components/board";
-import './App.css'; // Import the CSS file
+import { useContext } from "react";
+import Board from "./components/board";
+import { GameContext } from "./context/GameContext";
 
-const App = () => {
+function App() {
+  // const { screen } = useContext(GameContext);
   return (
     <div className="App">
-      <h1>Tic Tac Toe</h1>
-      <Board />
+      <div className="container">
+        <Board />
+      </div>
     </div>
   );
-};
+}
 
 export default App;
