@@ -1,23 +1,43 @@
 import React, { useContext } from "react";
 import { GameContext } from "../../context/GameContext";
-import { ModalContext } from "../../context/ModalContext";
+import Oicon from "../icons/Oicon";
+import Xicon from "../icons/Xicon";
 
-const Restart = () => {
-  const { hideModal } = useContext(ModalContext);
-  const { handleReset } = useContext(GameContext);
+const Win = () => {
+  const { winner, handleNextRound, handleReset } = useContext(GameContext);
   return (
-    <div className="restart">
-      <h3 className="restart__title">Restart Game?</h3>
-      <div className="restart__btns">
-        <button className="btn btn-sm" onClick={hideModal}>
-          no, cancal
+    <div className="score">
+      {winner && winner !== "no" ? (
+        <>
+          <p>yoy win!</p>
+          <h3
+            className={`score__title ${
+              winner === "o" ? "text-yellow" : "text-blue"
+            } `}
+          >
+            {winner === "x" && <Xicon />}
+            {winner === "o" && <Oicon />}
+            Takes the round
+          </h3>
+        </>
+      ) : (
+        <h3 className="score__title text-yellow">No Winner !</h3>
+      )}
+      <div className="score__btns">
+        <button className="btn btn-sm" onClick={handleReset}>
+          Quit
         </button>
-        <button className="btn btn-yellow btn-sm" onClick={handleReset}>
-          yes, restart
+        <button
+          className={`btn   btn-sm ${
+            winner === "x" ? "btn-yellow" : "btn-blue"
+          }`}
+          onClick={handleNextRound}
+        >
+          Next Round
         </button>
       </div>
     </div>
   );
 };
 
-export default Restart;
+export default Win;

@@ -213,8 +213,6 @@ body {
   gap: 12px;
 }
 /* board  */
-.board {
-}
 .board__header {
   display: flex;
   align-items: center;
