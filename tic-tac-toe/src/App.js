@@ -1,19 +1,15 @@
-import './App.css';
-import Oicon from "../src/components/icons/Oicon";
-import Xicon from "../src/components/icons/Xicon";
-import Board from './components/board';
+// src/App.js
+import React from "react";
+import Board from "../src/components/board";
+import './App.css'; // Import the CSS file
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Xicon />
-      <Board/>
-       <header className="App-header">
-        This is a Tic Tac Toe game project modified.
-      </header>
-      <Oicon />
+      <h1>Tic Tac Toe</h1>
+      <Board />
     </div>
   );
-}
+};
 
 export default App;

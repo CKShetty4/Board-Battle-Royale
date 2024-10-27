@@ -1,14 +1,36 @@
+/* src/App.css */
 .App {
-  text-align: center;
+  text-align: center; /* Center the text */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.board {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(3, 100px); /* Three columns of 100px each */
+  gap: 10px; /* Space between cards */
+  margin: 20px auto; /* Center the board horizontally */
+}
+
+.card {
+  width: 100px; /* Fixed width */
+  height: 100px; /* Fixed height */
+  display: flex; /* Flexbox for centering content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  border: 1px solid #ccc; /* Border around the cards */
+  font-size: 2rem; /* Font size for X and O */
+  cursor: pointer; /* Pointer on hover */
+  background-color: #f9f9f9; /* Background color */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.card:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+}
+
+.shadow-gray {
+  background-color: #f9f9f9; /* Default background for empty squares */
+}
+
+.active {
+  background-color: #d0f0c0; /* Background for filled squares */
 }

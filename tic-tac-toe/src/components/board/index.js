@@ -1,3 +1,4 @@
+// src/Board.js
 import React from "react";
 import "./Board.css";
 import BoardCard from "./BoardCard";
@@ -10,7 +11,7 @@ const Board = () => {
     <div className="board">
       <div className="board__body">
         {squares.map((sq, ix) => (
-          <BoardCard key={ix} user={sq} index={ix} active={false} />
+          <BoardCard key={ix} user={sq} index={ix} />
         ))}
       </div>
     </div>
