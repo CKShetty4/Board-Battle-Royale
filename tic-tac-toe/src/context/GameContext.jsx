@@ -64,24 +64,26 @@ const GameState = (props) => {
   const cpuNextMove = (sqrs) => {
     const cpuPlayer = activeUser  === "x" ? "o" : "x"; 
   
-    if (cpuFirstMove) {
-      const randomIndex = Math.floor(Math.random() * 9);
-      let ns = [...squares];
-      ns[randomIndex] = cpuPlayer;
-      setSquares(ns);
-      setXnext(!xnext);
-      checkWinner(ns);
-      setCpuFirstMove(false); 
-    } else {
-      const bestMove = calcBestMove(squares, cpuPlayer);
-      if (bestMove !== null) {
+    setTimeout(() => {
+      if (cpuFirstMove) {
+        const randomIndex = Math.floor(Math.random() * 9);
         let ns = [...squares];
-        ns[bestMove] = cpuPlayer; 
+        ns[randomIndex] = cpuPlayer;
         setSquares(ns);
         setXnext(!xnext);
         checkWinner(ns);
+        setCpuFirstMove(false); 
+      } else {
+        const bestMove = calcBestMove(squares, cpuPlayer);
+        if (bestMove !== null) {
+          let ns = [...squares];
+          ns[bestMove] = cpuPlayer; 
+          setSquares(ns);
+          setXnext(!xnext);
+          checkWinner(ns);
+        }
       }
-    }
+    }, 100); 
   };
 
   const handleReset = () => {
