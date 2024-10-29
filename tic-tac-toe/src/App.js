@@ -12,7 +12,7 @@ function App() {
         {screen === "start" ? <Start /> : <Board />}
       </div>
       <Modal />
-    </div>
+    </div>  
   );
 }
 
