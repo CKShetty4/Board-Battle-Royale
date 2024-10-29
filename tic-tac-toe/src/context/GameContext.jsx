@@ -7,19 +7,20 @@ const GameContext = createContext();
 const GameState = (props) => {
   const [screen, setScreen] = useState("start"); // start || game
   const [playMode, setPlayMode] = useState("user"); // user || cpu
-  const [activeUser, setActiveUser] = useState("x"); // x || o
+  const [activeUser , setActiveUser ] = useState("x"); // x || o
   const [squares, setSquares] = useState(new Array(9).fill(""));
   const [xnext, setXnext] = useState(false);
   const [winner, setWinner] = useState(null);
   const [winnerLine, setWinnerLine] = useState(null);
   const [ties, setTies] = useState({ x: 0, o: 0 });
+  const [cpuFirstMove, setCpuFirstMove] = useState(true); 
 
   const { showModal, hideModal, setModalMode } = useContext(ModalContext);
 
   useEffect(() => {
-    //check if cpu turn
-    let currentUser = xnext ? "o" : "x";
-    if (playMode === "cpu" && currentUser !== activeUser && !winner) {
+    // Check if it's CPU's turn
+    let currentUser  = xnext ? "o" : "x";
+    if (playMode === "cpu" && currentUser  !== activeUser  && !winner) {
       cpuNextMove(squares);
     }
     checkNoWinner();
@@ -29,14 +30,15 @@ const GameState = (props) => {
   const handleStart = (player) => {
     setPlayMode(player);
     setScreen("game");
+    setCpuFirstMove(true); 
   };
 
   const handleSquareClick = (ix) => {
     if (squares[ix] || winner) {
       return;
     }
-    let currentUser = xnext ? "o" : "x";
-    if (playMode === "cpu" && currentUser !== activeUser) {
+    let currentUser  = xnext ? "o" : "x";
+    if (playMode === "cpu" && currentUser  !== activeUser ) {
       return;
     }
     let ns = [...squares];
@@ -60,52 +62,38 @@ const GameState = (props) => {
   };
 
   const cpuNextMove = (sqrs) => {
-    const cpuPlayer = activeUser  === "x" ? "o" : "x";
-
-    // Check if it's the first move for the CPU
-    const isFirstMove = squares.every(square => square === "");
-    console.log("Current Squares:", squares);
-    console.log("Is First Move for CPU:", isFirstMove);
-
-    // If it's not the first move, we need to select from available squares
-    if (!isFirstMove) {
-        // Create an array of available square indices
-        const availableSquares = squares.map((square, index) => (square === "" ? index : null)).filter(index => index !== null);
-        console.log("Available Squares for Random Move:", availableSquares);
-
-        // Select a random index from available squares
-        if (availableSquares.length > 0) {
-            const randomIndex = availableSquares[Math.floor(Math.random() * availableSquares.length)];
-
-            // Make the CPU's random move
-            if (randomIndex !== undefined) {
-                let ns = [...squares];
-                ns[randomIndex] = cpuPlayer; // Make the CPU's random move
-                setSquares(ns);
-                setXnext(!xnext);
-                checkWinner(ns);
-            }
-        }
+    const cpuPlayer = activeUser  === "x" ? "o" : "x"; 
+  
+    if (cpuFirstMove) {
+      const randomIndex = Math.floor(Math.random() * 9);
+      let ns = [...squares];
+      ns[randomIndex] = cpuPlayer;
+      setSquares(ns);
+      setXnext(!xnext);
+      checkWinner(ns);
+      setCpuFirstMove(false); 
     } else {
-        // If it's the first move for the CPU, select a random square
-        const randomIndex = Math.floor(Math.random() * 9);
+      const bestMove = calcBestMove(squares, cpuPlayer);
+      if (bestMove !== null) {
         let ns = [...squares];
-        ns[randomIndex] = cpuPlayer; // Make the CPU's random move
+        ns[bestMove] = cpuPlayer; 
         setSquares(ns);
         setXnext(!xnext);
         checkWinner(ns);
+      }
     }
-};
+  };
 
   const handleReset = () => {
     setSquares(new Array(9).fill(""));
     setXnext(false);
     setWinner(null);
     setWinnerLine(null);
-    setActiveUser("x");
+    setActiveUser ("x");
     setTies({ x: 0, o: 0 });
     hideModal();
     setScreen("start");
+    setCpuFirstMove(true); 
   };
 
   const handleNextRound = () => {
@@ -114,6 +102,7 @@ const GameState = (props) => {
     setWinner(null);
     setWinnerLine(null);
     hideModal();
+    setCpuFirstMove(true); 
   };
 
   const checkNoWinner = () => {
