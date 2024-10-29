@@ -20,35 +20,58 @@ const lines = [
   }
   
   export default function calcBestMove(squares, player) {
-    const getArrDuplicatedCount = (arr) => {
-      let count = 0;
-      arr.forEach((i) => {
-        if (squares[i] === player) {
-          count += 1;
+    const opponent = player === 'x' ? 'o' : 'x';
+    let bestMove = null;
+    let bestScore = -Infinity;
+  
+    for (let i = 0; i < 9; i++) {
+      if (squares[i] === '') {
+        squares[i] = player;
+        let score = minimax(squares, 0, false, player, opponent);
+        squares[i] = '';
+        if (score > bestScore) {
+          bestScore = score;
+          bestMove = i;
         }
-      });
-      return count;
-    };
-  
-    const sortedLines = lines.sort((a, b) => {
-      let acount = getArrDuplicatedCount(a);
-      let bcount = getArrDuplicatedCount(b);
-      return bcount - acount;
-    });
-  
-    for (let i = 0; i < sortedLines.length; i++) {
-      let val = sortedLines[i].find((el) => {
-        if (squares[el] === "") {
-          return el + "";
-        }
-        return null;
-      });
-  
-      if (!val) {
-        continue;
       }
-      return +val;
     }
-    return null;
+  
+    return bestMove;
   }
   
+  function minimax(squares, depth, isMaximizing, player, opponent) {
+    let winner = calcWinner(squares);
+    if (winner) {
+      if (winner.winner === player) {
+        return 10 - depth;
+      } else if (winner.winner === opponent) {
+        return depth - 10;
+      } else {
+        return 0;
+      }
+    }
+  
+    if (isMaximizing) {
+      let bestScore = -Infinity;
+      for (let i = 0; i < 9; i++) {
+        if (squares[i] === '') {
+          squares[i] = player;
+          let score = minimax(squares, depth + 1, false, player, opponent);
+          squares[i] = '';
+          bestScore = Math.max(score, bestScore);
+        }
+      }
+      return bestScore;
+    } else {
+      let bestScore = Infinity;
+      for (let i = 0; i < 9; i++) {
+        if (squares[i] === '') {
+          squares[i] = opponent;
+          let score = minimax(squares, depth + 1, true, player, opponent);
+          squares[i] = '';
+          bestScore = Math.min(score, bestScore);
+        }
+      }
+      return bestScore;
+    }
+  }
