@@ -1,15 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GameContext } from "../../context/GameContext";
 import Oicon from "../icons/Oicon";
 import Xicon from "../icons/Xicon";
+import Confetti from "react-confetti";
+import './Win.css';
 
 const Win = () => {
   const { winner, handleNextRound, handleReset } = useContext(GameContext);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    if (winner && winner !== "no") {
+      setShowConfetti(true);
+      const timer = setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setShowConfetti(false);
+          setFadeOut(false);
+        }, 1000); 
+      }, 2000); 
+
+      return () => clearTimeout(timer);
+    }
+  }, [winner]);
+
   return (
     <div className="score">
       {winner && winner !== "no" ? (
         <>
-          <p>yoy win!</p>
+          {showConfetti && (
+            <div className={`confetti-container ${fadeOut ? 'fade-out' : ''}`}>
+              <Confetti width={window.innerWidth} height={window.innerHeight} />
+            </div>
+          )}
+          <p>We have a winner!!</p>
           <h3
             className={`score__title ${
               winner === "o" ? "text-yellow" : "text-blue"
@@ -28,7 +53,7 @@ const Win = () => {
           Quit
         </button>
         <button
-          className={`btn   btn-sm ${
+          className={`btn btn-sm ${
             winner === "x" ? "btn-yellow" : "btn-blue"
           }`}
           onClick={handleNextRound}
