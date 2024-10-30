@@ -12,7 +12,7 @@ const GameState = (props) => {
   const [xnext, setXnext] = useState(false);
   const [winner, setWinner] = useState(null);
   const [winnerLine, setWinnerLine] = useState(null);
-  const [ties, setTies] = useState({ x: 0, o: 0 });
+  const [ties, setTies] = useState({ x: 0, o: 0, no:0 });
   const [cpuFirstMove, setCpuFirstMove] = useState(true); 
 
   const { showModal, hideModal, setModalMode } = useContext(ModalContext);
@@ -54,10 +54,20 @@ const GameState = (props) => {
       setWinner(isWinner.winner);
       setWinnerLine(isWinner.line);
       const nties = { ...ties };
-      nties[isWinner.winner] += 1;
+      
+      // Update only the winner's score
+      if (isWinner.winner === 'x') {
+        nties.x += 1;
+      } else if (isWinner.winner === 'o') {
+        nties.o += 1;
+      }
+      
       setTies(nties);
       showModal();
       setModalMode("winner");
+    } else {
+      // Check for a tie if there's no winner
+      checkNoWinner();
     }
   };
 
@@ -109,8 +119,11 @@ const GameState = (props) => {
 
   const checkNoWinner = () => {
     const moves = squares.filter((sq) => sq === "");
-    if (moves.length === 0) {
+    if (moves.length === 0 && !winner) {
       setWinner("no");
+      const nties = { ...ties };
+      nties.no += 1;
+      setTies(nties);
       showModal();
       setModalMode("winner");
     }
