@@ -22,7 +22,19 @@ Play it live here: [Tic Tac Toe by CK Shetty](https://tictactoebyckshetty.netlif
 
 ## 📸 Screenshots and Demo
 
-*(Add gameplay screenshots and demo video/gif here)*
+<video width="600" controls>
+  <source src="/Demo/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+### Screenshot
+Below is a screenshot of the application:
+
+![StartScreen](/Demo/StartScreen.png "StartScreen")
+![GameBoard](/Demo/GameBoard.png "GameBoard")
+![Gameplay](/Demo/Gameplay.png "Gameplay")
+![RestartScreen](/Demo/RestartScreen.png "RestartScreen")
+![WinnerScreen](/Demo/WinnerScreen.png "WinnerScreen")
+
 
 ## 🚀 Getting Started
 
@@ -33,11 +45,11 @@ To play, simply open the [live demo](https://tictactoebyckshetty.netlify.app/). 
 If you'd like to run this project locally:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-github-username/board-battle-royale-tictactoe.git
+   git clone https://github.com/CKShetty4/Board-Battle-Royale.git
    ```
 2. Navigate into the project directory:
    ```bash
-   cd board-battle-royale-tictactoe
+   cd Board-Battle-Royale/tic-tac-toe
    ```
 3. Install dependencies:
    ```bash

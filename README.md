@@ -32,7 +32,18 @@ Each game folder contains its own README, making it easy to navigate and set up 
 
 ## 📸 Screenshots and Demo
 
-*(Include demo video, GIFs, and screenshots here to showcase gameplay and interface.)*
+<video width="600" controls>
+  <source src="/tic-tac-toe/Demo/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+### Screenshot
+Below is a screenshot of the application:
+
+![StartScreen](/tic-tac-toe/Demo/StartScreen.png "StartScreen")
+![GameBoard](/tic-tac-toe/Demo/GameBoard.png "GameBoard")
+![Gameplay](/tic-tac-toe/Demo/Gameplay.png "Gameplay")
+![RestartScreen](/tic-tac-toe/Demo/RestartScreen.png "RestartScreen")
+![WinnerScreen](/tic-tac-toe/Demo/WinnerScreen.png "WinnerScreen")
 
 ## 💻 Getting Started
 
@@ -42,11 +53,11 @@ To try the Tic Tac Toe game locally, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-github-username/board-battle-royale.git
+   git clone https://github.com/CKShetty4/Board-Battle-Royale.git
    ```
 2. Navigate to the Tic Tac Toe directory:
    ```bash
-   cd board-battle-royale/tic-tac-toe
+   cd Board-Battle-Royale/tic-tac-toe
    ```
 3. Install dependencies:
    ```bash
