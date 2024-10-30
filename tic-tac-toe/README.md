@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Tic Tac Toe - Board Battle Royale Series
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Tic Tac Toe**, the first game in the **Board Battle Royale** series! This series is dedicated to classic board games brought to life with modern web technologies. Dive into the timeless battle of X's and O's, and test your strategic skills against friends or an unpredictable CPU!
 
-## Available Scripts
+## 🎮 Game Overview
 
-In the project directory, you can run:
+The Tic Tac Toe game offers two modes:
+1. **Player vs Player**: Challenge a friend and go head-to-head on the board.
+2. **Player vs CPU**: Test your skills against an AI opponent that plays like a human, offering unpredictability to keep the game exciting.
 
-### `npm start`
+## 🔗 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Play it live here: [Tic Tac Toe by CK Shetty](https://tictactoebyckshetty.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🕹️ Features
 
-### `npm test`
+- **Two Modes**: Choose between Player vs Player or Player vs CPU.
+- **Symbol Selection**: Player One can select either **X** or **O** before the game starts (X always goes first).
+- **Score Tracking**: Displays the number of wins by X, wins by O, and the total number of ties.
+- **Unpredictable CPU**: The AI uses a carefully designed algorithm that brings unpredictability to the game, making it feel like you're playing against a human opponent.
+- **Clean and Responsive UI**: Enjoy a seamless experience across all devices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📸 Screenshots and Demo
 
-### `npm run build`
+*(Add gameplay screenshots and demo video/gif here)*
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To play, simply open the [live demo](https://tictactoebyckshetty.netlify.app/). No installation required!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Run Locally
 
-### `npm run eject`
+If you'd like to run this project locally:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-github-username/board-battle-royale-tictactoe.git
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd board-battle-royale-tictactoe
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧠 Algorithm
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The CPU mode leverages a carefully designed algorithm to simulate human-like unpredictability. It’s optimized to avoid overly predictable moves, creating a challenging and engaging opponent experience.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ⭐ Feedback and Contributions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you enjoy the game, please give this project a **star** on GitHub and **follow** for more upcoming games in the **Board Battle Royale** series!
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
