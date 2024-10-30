@@ -32,11 +32,10 @@ Each game folder contains its own README, making it easy to navigate and set up 
 
 ## 📸 Screenshots and Demo
 
-<video width="600" controls>
-  <source src="/tic-tac-toe/Demo/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo Video](/tic-tac-toe/Demo/demo.mp4  "DemoVideo")
+
 ### Screenshot
+
 Below is a screenshot of the application:
 
 ![StartScreen](/tic-tac-toe/Demo/StartScreen.png "StartScreen")

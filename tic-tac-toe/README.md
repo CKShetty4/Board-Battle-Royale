@@ -22,11 +22,10 @@ Play it live here: [Tic Tac Toe by CK Shetty](https://tictactoebyckshetty.netlif
 
 ## 📸 Screenshots and Demo
 
-<video width="600" controls>
-  <source src="/Demo/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo Video](/Demo/demo.mp4  "DemoVideo")
+
 ### Screenshot
+
 Below is a screenshot of the application:
 
 ![StartScreen](/Demo/StartScreen.png "StartScreen")
